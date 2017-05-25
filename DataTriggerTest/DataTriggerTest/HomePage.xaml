@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DataTriggerTest.HomePage"
+              xmlns:local="clr-namespace:DataTriggerTest">
+    <ContentPage.BindingContext>
+        <local:HomePageViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <StackLayout.Triggers>
+            <DataTrigger TargetType="StackLayout" Binding="{Binding  IsSelected }" Value="False">
+                <Setter Property="BackgroundColor" Value="Green"/>
+            </DataTrigger>
+            <DataTrigger TargetType="StackLayout" Binding="{Binding IsSelected}" Value="True">
+                <Setter Property="BackgroundColor" Value="Red"/>
+            </DataTrigger>
+        </StackLayout.Triggers>
+
+        <Button x:Name="MyBtn" Command="{Binding Trigger}" Text="ClickMe" />
+
+    </StackLayout>
+</ContentPage>
